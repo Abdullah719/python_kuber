@@ -12,12 +12,18 @@ def details():
         'host': socket.gethostname()
     })
 
+
 @app.route('/api/vq/health')
 
 def health():
     return jsonify({
         "status": "up!"
     }),200
+
+# Add root route to handle '/'
+@app.route('/')
+def home():
+    return "Welcome to the Python App API!"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000)
